@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yarda - {{ userdata.username }}</title>
+</head>
+<body>
+    <header>
+      <main>
+        <article>
+            <h1>профиль пользователя {{ userdata.username }}{% if userdata.username in moderators %}✔️{% endif %}</h1>
+            {% if userdata.username in moderators %}
+            <p>официальный аккаунт</p>
+            {% endif %}
+        </article>
+      </main>
+    </header>
+    <footer>
+        <div>
+            <h1></h1>
+            <div>
+                <h2>подписчики: {{ userdata["followers"] }}</h2>
+                <h3>описание: {{ userdata["description"] }}</h3>
+            </div>
+            <form method="POST" action="/profile/{{ userdata.username }}/follow">
+                <button type="submit">подписаться</button>
+            </form>
+        </div>
+    </footer>
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  color:#565656
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+button {
+padding: 10px 20px;
+background-color: #0088ff;
+color: #fff;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0059a6;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  color: #ffffff;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+article p {
+  color: #666;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+    </style>
+</body>
+</html>

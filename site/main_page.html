@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yarda main</title>
+</head>
+<body>
+  <header>
+    <h1>Yarda - главная</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#">Главная</a></li>
+      <li><a href="/login">сменить аккаунт</a></li>
+      <li><a href="/create">создать пост</a></li>
+      <li><a href="/chat">общий чат</a></li>
+      <li><a href="/myprofile">ваш профиль</a></li>
+    </ul>
+  </nav>
+  
+  <section>
+    <h2>самое интересное для вас!</h2>
+    <div class="post">
+        {% for post in posts %}
+        <div class="post_">
+            <h3 class="profile" onclick="window.location.href = '/profile/{{ post.username }}'">{{post.username}} {% if post.username in moderators %}✔️{% endif %}: {{ post.title }}</h2>
+            <a href="/post/{{ loop.index0 }}">Подробнее</a>
+        </div>
+        {% endfor %}
+    </div>
+  </section>
+  
+  <footer>
+    <p>связаться с нами - yardaoffical@gmail.com</p>
+  </footer>
+</body>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgb(111, 111, 255);
+  color: #fff;
+  padding: 20px;
+}
+
+nav {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: rgb(111, 111, 255);;
+}
+
+.profile {
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+
+.profile:hover {
+    color: rgb(0, 37, 200);
+}
+
+section {
+  padding: 20px;
+}
+
+.post {
+  display: block;
+  gap: 20px;
+
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.post_ {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+</style>
+</html>

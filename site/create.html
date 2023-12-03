@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yarda - create</title>
+</head>
+<body>
+    <h1>Создать пост</h1>
+
+    <form method="POST" action="/create">
+        <label for="title">Заголовок:</label>
+        <input type="text" id="title" name="title" required>
+        <br>
+        <label for="content">Содержимое:</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <button type="submit" onclick="alert('пост создан!')">Опубликовать</button>
+    </form>
+    <img src="https://free-png.ru/wp-content/uploads/2021/07/free-png.ru-2.png" class="galo4ka" alt="изображение">
+    <div class="vertical-panel">
+        <p class="account">ваш аккаунт: <br>{{ username }}{% if username in moderators %}✔️{% endif %}</p>
+        <div class="btn">
+            <p class="btn-text">сменить аккаунт</p>
+        </div>
+        <div class="btn2">
+            <p class="btn-text2" onclick="window.location.href = 'index'">на главную</p>
+        </div>
+    </div>
+    <style>
+
+        .btn {
+            width: 150px;
+            background-color: blue;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100px;
+        }
+
+        .btn-text {
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+
+        .btn2 {
+            width: 150px;
+            background-color: blue;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100px;
+        }
+
+        .btn-text2 {
+            text-align: center;
+            color: rgb(255, 255, 255)
+        }
+        
+        .vertical-panel {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #0088ff;
+        }
+
+        .galo4ka {
+            width:10px;
+            height: 10px;
+            float: right;
+            margin-left: 10px;
+        }
+
+        .account {
+        font-size: 24px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-align: center;
+        }
+        
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        }
+
+        .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        }
+
+        label {
+        display: block;
+        margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+
+        input[type="file"],
+        textarea {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+
+        button {
+        padding: 10px 20px;
+        background-color: #0088ff;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        }
+
+        button:hover {
+        background-color: #0059a6;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yarda - settings</title>
+</head>
+    <body>
+        <header>
+            <main>
+                <article>
+                <h1>{{ user }}{% if user in moderators %}✔️{% endif %}</h1>
+                {% if user in moderators %}
+                <p>У вас есть верификация!</p>
+                {% endif %}
+                </article>
+            </main>   
+        </header>     
+        <footer>
+        <p>подписчики: {{ followers }}</p>
+        <p>текущее описание: {{ description }}</p>
+        <ul>
+            <form method="POST" action="/myprofile_?username={{ user }}">
+                <input type="text" id="description" name="description" required>
+                <button type="submit">изменить описание</button>
+            </form>
+        </ul>
+        </footer>
+          <style>
+            body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+button {
+padding: 10px 20px;
+background-color: #0088ff;
+color: #fff;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0059a6;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  color: #333;
+}
+
+input[type="text"],
+textarea {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+article p {
+  color: #666;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+          </style>
+    </body>
+</html>

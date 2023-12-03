@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yarda</title>
+</head>
+<body>
+    <div class="main-div">
+        <div class="menu-bar">
+            <a href="./login">войти</a>
+            <a href="./create">создать</a>
+            <a href="./register">регистрация</a>
+            <a href="./api">API</a>
+          </div>
+        <h1 class="main-title"><span class="yarda">Yarda</span> - форум для всех!</h1>
+    </div>
+
+    <div class="plus-div">
+        <h1 class="plus">плюсы Yarda</h1>
+        <p class="plus-desc">
+            1. полная анонимность
+            <br>2. защита ваших данных
+            <br>3. делись постами в любое время
+        </p>
+    </div>
+    <div class="btn">
+        <h2 class="btn-desc" onclick="window.location.href = './register'">попробуй!</h2>
+    </div>
+    <div class="contacts">
+        <h1 class="contact-title">связаться с нами: yardaoffical@gmail.com</h1>
+    </div>
+
+    <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+    }
+
+body.loaded {
+    opacity: 1;
+}
+
+.main-div {
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu-bar a {
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.contact-title {
+  text-align: center;
+  color: #333; 
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+}
+
+.main-title {
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+}
+
+.yarda {
+  font-family: 'Poppins', sans-serif;
+  color: #005eff;
+}
+
+.plus-div {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.plus {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.plus-desc {
+  font-family: 'Poppins', sans-serif;
+  color: black;
+}
+
+.btn {
+  background-color: rgb(86, 86, 220);
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+    background-color: rgb(0, 37, 200);
+}
+
+.btn-desc {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.other h3 {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.contacts {
+  padding: 20px;
+}
+    </style>
+    <script>
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

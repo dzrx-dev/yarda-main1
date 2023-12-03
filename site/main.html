@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yarda</title>
+</head>
+<body>
+    <h1>Yarda - main room</h1>
+    <div id="messages">
+        <h3>напиши /help для вызова YardaBot'a</h3>
+        {% for message in messages %}
+            <p><strong>{{ message.username }}{% if message.username in moderators %}✔️{% endif %}:</strong> {{ message.message }}
+            {% if message.message == '/help' %}<p><strong>YardaBot 🤖:</strong> команды: /help - все команды
+            <br>/api - взаимодействие с Yarda использя API<br>/posts - кол-во постов на данный момент</p> {% endif %}{% if message.message == '/api'%}<p><strong>YardaBot 🤖:</strong>API в Yarda - api/posts - просмотр всех постов<br>api/getPost?post_id=ID - получить контент поста<br>/api/getUserDescription?username={USERNAME} - получить описание профиля пользователя<br>/api/getUserFollowers?username={USERNAME}&int={true OR false} - получить подписчиков пользователя</p>{% endif %}
+            {% if message.message == '/posts'%}<p><strong>YardaBot 🤖:</strong>количество постов на данный момент: {{ posts }}</p>{% endif %}</p>
+        {% endfor %}
+    </div>
+    <form action="/send" method="post">
+        <input type="text" name="message" placeholder="Введите сообщение" required>
+        <button type="submit">Отправить</button>
+    </form>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#messages {
+    background-color: #fff;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#messages p {
+    margin: 10px 0;
+}
+
+#messages strong {
+    color: #333;
+}
+
+#messages strong::after {
+    color: green;
+}
+
+#messages p strong:contains("YardaBot 🤖") {
+    color: blue;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+    </style>
+</body>
+</html>

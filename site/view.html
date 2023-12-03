@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <header>
+    <h1>{{ post.title }}</h1>
+  </header>
+  
+  <main>
+    <article>
+      <h2>{{ post.content }}</h2>
+      <p>Автор: {{ post.username }}{% if post.username in moderators%}✔️{% endif %}</p>
+    </article>
+  </main>
+  
+  <footer>
+    <h2>Комментарии</h2>
+    <ul>
+        {% for comment in post.comments %}
+            <li class="profile" onclick="window.location.href = '/profile/{{ comment.username }}'"><strong>{{ comment.username }}{% if comment.username in moderators %}✔️{% endif %}:</strong>{{comment.comment}}</li>
+            {% if post.username in moderators %}
+            <form method="POST" action="/delete/{{ post_id }}">
+                <button type="submit">Удалить пост</button>
+            </form>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <h3>Добавить комментарий</h3>
+    <form method="POST" action="/post/{{ post_id }}">
+        <textarea name="comment" placeholder="Введите комментарий"></textarea>
+        <br>
+        <button type="submit">Отправить</button>
+    </form>
+  </footer>
+</body>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+.btn {
+    width: 150px;
+    background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+}
+
+.btn-text {
+    text-align: center;
+    color: rgb(255, 255, 255)
+}
+
+.profile {
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+
+.profile:hover {
+    color: rgb(0, 37, 200);
+}
+
+.btn2 {
+    width: 150px;
+    background-color: blue;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+}
+
+.btn-text2 {
+    text-align: center;
+    color: rgb(255, 255, 255)
+}
+
+.vertical-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #0088ff;
+}
+
+.account {
+font-size: 24px;
+color: #ffffff;
+margin-bottom: 20px;
+text-align: center;
+}
+button {
+padding: 10px 20px;
+background-color: #0088ff;
+color: #fff;
+border: none;
+border-radius: 3px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0059a6;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h2 {
+  color: #333;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+article p {
+  color: #666;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+</style>
+</html>
